@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VetClinique.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="25">
+            <Label Text="Bun venit la VetClinique!" FontSize="Large" HorizontalOptions="Center" />
+
+            <Button Text="Adauga Programare" Clicked="OnAddProgramareClicked" />
+
+            <Button Text="Vezi Programări" Clicked="OnViewProgramariClicked" />
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

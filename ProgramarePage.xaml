@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VetClinique.ProgramarePage"
+             Title="Adauga Programare">
+
+    <StackLayout Padding="20">
+        <Label Text="Pacient ID" FontSize="Medium" />
+        <Entry x:Name="PacientIDEntry" Keyboard="Numeric" Placeholder="Introduceti ID-ul pacientului" />
+
+        <Label Text="Veterinar ID" FontSize="Medium" />
+        <Entry x:Name="VeterinarIDEntry" Keyboard="Numeric" Placeholder="Introduceti ID-ul veterinarului" />
+
+        <Label Text="Data Programarii" FontSize="Medium" />
+        <DatePicker x:Name="DataProgramariiPicker" />
+
+        <Button Text="Salveaza Programare" Clicked="OnSaveProgramareClicked" BackgroundColor="#4CAF50" TextColor="White" />
+    </StackLayout>
+</ContentPage>

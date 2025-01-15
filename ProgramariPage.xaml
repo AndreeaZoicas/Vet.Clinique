@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VetClinique.ProgramariPage"
+             Title="Lista Programări">
+
+    <StackLayout Padding="20">
+        <Label Text="Lista Programărilor" FontSize="Large" HorizontalOptions="Center" />
+
+        <ListView x:Name="ProgramariListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding PacientID}" Detail="{Binding DataProgramarii}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
