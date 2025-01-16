@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Vet.Clinique.Models
 {
-    public class Programare
+    public class ProgramareDTO
     {
-        public int ID { get; set; } 
+        public string NumePacient { get; set; }
+        public string NumeMedic { get; set; }
         public DateTime DataProgramarii { get; set; }
-        public int PacientID { get; set; } 
-        public int VeterinarID { get; set; } 
     }
 }

@@ -5,11 +5,11 @@
              Title="Adauga Programare">
 
     <StackLayout Padding="20">
-        <Label Text="Pacient ID" FontSize="Medium" />
-        <Entry x:Name="PacientIDEntry" Keyboard="Numeric" Placeholder="Introduceti ID-ul pacientului" />
-
-        <Label Text="Veterinar ID" FontSize="Medium" />
-        <Entry x:Name="VeterinarIDEntry" Keyboard="Numeric" Placeholder="Introduceti ID-ul veterinarului" />
+        <Label Text="Pacient " FontSize="Medium" />
+        <Picker x:Name="PacientPicker" Title="Selectează pacientul" />
+        
+        <Label Text="Veterinar" FontSize="Medium" />
+        <Picker x:Name="VeterinarPicker" Title="Selectează medicul" />
 
         <Label Text="Data Programarii" FontSize="Medium" />
         <DatePicker x:Name="DataProgramariiPicker" />

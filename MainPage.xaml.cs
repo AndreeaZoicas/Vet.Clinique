@@ -9,14 +9,13 @@
 
         private async void OnAddProgramareClicked(object sender, EventArgs e)
         {
-            // Navigheaza către pagina de adăugare a programării
             await Navigation.PushAsync(new ProgramarePage());
         }
 
         private int count = 0;
         private void OnCounterClicked(object sender, EventArgs e)
         {
-            count++; // Incrementăm contorul
+            count++;
             DisplayAlert("Informație", $"Butonul a fost apăsat de {count} ori.", "OK");
         }
 

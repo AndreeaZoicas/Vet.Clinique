@@ -17,11 +17,28 @@ namespace VetClinique
 
         private async void LoadProgramari()
         {
-            // Obține toate programările din baza de date
-            List<Programare> programari = await App.Database.GetProgramariAsync();
+            List<ProgramareDTO> programari = await App.Database.GetProgramariWithDetailsAsync();
 
-            // Atribuie lista ListView-ului
+
+            foreach (var programare in programari)
+            {
+                System.Diagnostics.Debug.WriteLine($"Pacient: {programare.NumePacient}, Medic: {programare.NumeMedic}, Data: {programare.DataProgramarii}");
+            }
+
+
+
             ProgramariListView.ItemsSource = programari;
         }
+
+        private async void OnResetProgramariClicked(object sender, EventArgs e)
+        {
+            await App.Database.DeleteAllProgramariAsync();
+
+            await DisplayAlert("Succes", "Toate programările au fost șterse.", "OK");
+
+            LoadProgramari();
+        }
+
+
     }
 }

@@ -7,12 +7,24 @@
     <StackLayout Padding="20">
         <Label Text="Lista Programărilor" FontSize="Large" HorizontalOptions="Center" />
 
+
+        <Button Text="Resetează Programările" 
+                BackgroundColor="Red" 
+               TextColor="White" 
+               Clicked="OnResetProgramariClicked" />
+
         <ListView x:Name="ProgramariListView">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding PacientID}" Detail="{Binding DataProgramarii}" />
+                    <TextCell Text="{Binding PacientID}"
+                              Detail="{Binding NumeMedic, StringFormat='Doctor: {0} - Data: {1:dd.MM.yyyy}'}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        
+
+
+
     </StackLayout>
 </ContentPage>

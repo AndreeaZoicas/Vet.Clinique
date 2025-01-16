@@ -8,9 +8,9 @@ namespace Vet.Clinique.Models
 {
     public class Veterinar
     {
-        public int ID { get; set; } // Cheie primară
-        public string Nume { get; set; }
-        public string Specializare { get; set; }
+        public int ID { get; set; } 
+        public string NumeMedic { get; set; } =string.Empty;
+        public string Specializare { get; set; } = string.Empty;
     }
 
 }

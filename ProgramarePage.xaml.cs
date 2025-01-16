@@ -1,5 +1,6 @@
 ﻿using Vet.Clinique;
 using Vet.Clinique.Models;
+using System.Linq;
 
 namespace VetClinique
 {
@@ -8,28 +9,47 @@ namespace VetClinique
         public ProgramarePage()
         {
             InitializeComponent();
+            LoadPickerData(); // Încarcă datele în Picker-uri
+        }
+
+        private async void LoadPickerData()
+        {
+            var pacienti = await App.Database.GetPacientiAsync();
+            PacientPicker.ItemsSource = pacienti.Select(p => p.NumePacient).ToList(); 
+
+            var medici = await App.Database.GetMediciAsync();
+            VeterinarPicker.ItemsSource = medici.Select(m => m.NumeMedic).ToList(); 
         }
 
         private async void OnSaveProgramareClicked(object sender, EventArgs e)
         {
+            if (PacientPicker.SelectedIndex == -1 || VeterinarPicker.SelectedIndex == -1)
+            {
+                await DisplayAlert("Eroare", "Selectați un pacient și un medic.", "OK");
+                return;
+            }
+
+            var pacienti = await App.Database.GetPacientiAsync();
+            var pacient = pacienti.FirstOrDefault(p => p.NumePacient == PacientPicker.SelectedItem.ToString());
+
+            var medici = await App.Database.GetMediciAsync();
+            var medic = medici.FirstOrDefault(m => m.NumeMedic == VeterinarPicker.SelectedItem.ToString());
+
+
             var programare = new Programare
             {
-                PacientID = int.Parse(PacientIDEntry.Text),
-                VeterinarID = int.Parse(VeterinarIDEntry.Text),
+                PacientID = pacient?.ID ?? 0, 
+                VeterinarID = medic?.ID ?? 0, 
                 DataProgramarii = DataProgramariiPicker.Date
             };
 
-            await App.Database.SaveProgramareAsync(programare); // Salvează în baza de date
+            System.Diagnostics.Debug.WriteLine($"Programare: PacientID={programare.PacientID}, VeterinarID={programare.VeterinarID}, Data={programare.DataProgramarii}");
+
+            await App.Database.SaveProgramareAsync(programare);
 
             await DisplayAlert("Succes", "Programarea a fost salvată!", "OK");
 
-            // Resetare câmpuri
-            PacientIDEntry.Text = string.Empty;
-            VeterinarIDEntry.Text = string.Empty;
-
             await Navigation.PushAsync(new ProgramariPage());
-
         }
-
     }
 }

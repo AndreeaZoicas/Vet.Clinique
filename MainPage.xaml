@@ -6,7 +6,7 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="25">
             <Label Text="Bun venit la VetClinique!" FontSize="Large" HorizontalOptions="Center" />
-
+            <Image Source="poza.jpg" HeightRequest="200" WidthRequest="200" HorizontalOptions="Center" />
             <Button Text="Adauga Programare" Clicked="OnAddProgramareClicked" />
 
             <Button Text="Vezi Programări" Clicked="OnViewProgramariClicked" />
